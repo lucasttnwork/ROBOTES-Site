@@ -24,12 +24,19 @@ COPY --from=build /app/dist /usr/share/nginx/html
 # Copiar configuração customizada do nginx como template
 COPY nginx.conf /etc/nginx/templates/default.conf.template
 
+# Copiar script de entrypoint customizado
+COPY docker-entrypoint.sh /usr/local/bin/docker-entrypoint-custom.sh
+RUN chmod +x /usr/local/bin/docker-entrypoint-custom.sh
+
 # Expor porta (será definida pela variável PORT da Railway)
 EXPOSE 80
 
 # Health check - usa a variável PORT se disponível
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD wget --quiet --tries=1 --spider http://localhost:${PORT:-80}/ || exit 1
+
+# Usar entrypoint customizado que define PORT padrão
+ENTRYPOINT ["/usr/local/bin/docker-entrypoint-custom.sh"]
 
 # Iniciar nginx
 CMD ["nginx", "-g", "daemon off;"]
