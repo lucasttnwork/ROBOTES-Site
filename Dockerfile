@@ -21,15 +21,15 @@ FROM nginx:alpine
 # Copiar build para nginx
 COPY --from=build /app/dist /usr/share/nginx/html
 
-# Copiar configuração customizada do nginx
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Copiar configuração customizada do nginx como template
+COPY nginx.conf /etc/nginx/templates/default.conf.template
 
-# Expor porta 80
+# Expor porta (será definida pela variável PORT da Railway)
 EXPOSE 80
 
-# Health check
+# Health check - usa a variável PORT se disponível
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD wget --quiet --tries=1 --spider http://localhost/ || exit 1
+  CMD wget --quiet --tries=1 --spider http://localhost:${PORT:-80}/ || exit 1
 
 # Iniciar nginx
 CMD ["nginx", "-g", "daemon off;"]
