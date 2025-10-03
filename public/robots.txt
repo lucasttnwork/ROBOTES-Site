@@ -1,0 +1,22 @@
+# robots.txt para ROBOTES
+# Permite que todos os motores de busca indexem o site
+
+User-agent: *
+Allow: /
+
+# Bloquear arquivos sensíveis
+Disallow: /api/
+Disallow: /admin/
+Disallow: /*.json$
+Disallow: /node_modules/
+
+# Sitemap
+Sitemap: https://robotes.com.br/sitemap.xml
+
+# Crawl-delay para bots específicos (opcional)
+User-agent: Googlebot
+Crawl-delay: 0
+
+User-agent: Bingbot
+Crawl-delay: 0
+

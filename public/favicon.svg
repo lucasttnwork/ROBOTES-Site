@@ -1,0 +1,54 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Gradiente de fundo azul/ciano -->
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0ea5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background com border radius -->
+  <rect width="256" height="256" rx="56" fill="url(#bgGrad)"/>
+  
+  <!-- Estrela grande (principal) -->
+  <g transform="translate(128, 128)">
+    <!-- Centro da estrela -->
+    <circle cx="0" cy="0" r="20" fill="white" opacity="0.95"/>
+    
+    <!-- Raios da estrela (4 pontas principais) -->
+    <!-- Raio superior -->
+    <path d="M 0,-20 L -3,-50 L 0,-70 L 3,-50 Z" fill="white" opacity="0.9"/>
+    <!-- Raio direito -->
+    <path d="M 20,0 L 50,-3 L 70,0 L 50,3 Z" fill="white" opacity="0.9"/>
+    <!-- Raio inferior -->
+    <path d="M 0,20 L -3,50 L 0,70 L 3,50 Z" fill="white" opacity="0.9"/>
+    <!-- Raio esquerdo -->
+    <path d="M -20,0 L -50,-3 L -70,0 L -50,3 Z" fill="white" opacity="0.9"/>
+    
+    <!-- Raios diagonais menores -->
+    <!-- Superior direito -->
+    <path d="M 14,-14 L 38,-38 L 45,-35 L 35,-25 Z" fill="white" opacity="0.7"/>
+    <!-- Inferior direito -->
+    <path d="M 14,14 L 38,38 L 35,45 L 25,35 Z" fill="white" opacity="0.7"/>
+    <!-- Inferior esquerdo -->
+    <path d="M -14,14 L -38,38 L -45,35 L -35,25 Z" fill="white" opacity="0.7"/>
+    <!-- Superior esquerdo -->
+    <path d="M -14,-14 L -38,-38 L -35,-45 L -25,-35 Z" fill="white" opacity="0.7"/>
+  </g>
+  
+  <!-- Estrela pequena (secundária - canto superior direito) -->
+  <g transform="translate(180, 76)">
+    <circle cx="0" cy="0" r="8" fill="white" opacity="0.9"/>
+    <!-- Raios pequenos -->
+    <path d="M 0,-8 L -1,-18 L 0,-22 L 1,-18 Z" fill="white" opacity="0.8"/>
+    <path d="M 8,0 L 18,-1 L 22,0 L 18,1 Z" fill="white" opacity="0.8"/>
+    <path d="M 0,8 L -1,18 L 0,22 L 1,18 Z" fill="white" opacity="0.8"/>
+    <path d="M -8,0 L -18,-1 L -22,0 L -18,1 Z" fill="white" opacity="0.8"/>
+  </g>
+  
+  <!-- Brilhos/sparkles adicionais -->
+  <circle cx="90" cy="95" r="4" fill="white" opacity="0.7"/>
+  <circle cx="165" cy="160" r="3" fill="white" opacity="0.6"/>
+  <circle cx="75" cy="170" r="5" fill="white" opacity="0.5"/>
+</svg>
+
